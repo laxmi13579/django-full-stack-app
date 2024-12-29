@@ -2,5 +2,6 @@ from app1 import views
 from django.urls import path 
 
 urlpatterns = [
-    path('', views.main, name="main"),
+    path('main/', views.main, name="main"),
+    path('', views.filterInDjango, name="filterInDjango"),
 ]
