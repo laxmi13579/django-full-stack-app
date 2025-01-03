@@ -2,6 +2,7 @@ from app1 import views
 from django.urls import path 
 
 urlpatterns = [
-    path('main/', views.main, name="main"),
-    path('', views.filterInDjango, name="filterInDjango"),
+    path('', views.main, name="main"),
+    path('about/', views.about, name="about"),
+    path('contact/', views.contactUs, name="contact"),
 ]

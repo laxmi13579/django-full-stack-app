@@ -8,11 +8,8 @@ from datetime import datetime
 def main(request):
     return render(request, 'app1/main.html')
 
+def about(request):
+    return render(request, 'app1/about.html')
 
-def filterInDjango(request):
-    context = {
-        'name': 'laxmi kumar yadav',
-        'adress': 'Mithila Nagar Palika Ward No. 1',
-        'currentDate': datetime.now()
-    }
-    return render(request, 'app1/filterInDjango.html', context)
+def contactUs(request):
+    return render(request, 'app1/contactUs.html')

@@ -24,4 +24,6 @@ urlpatterns = [
     path('index/', views.index,  {'status':'200'}, name='index'),
 
     path('', include('app1.urls')),
+    path("__reload__/", include("django_browser_reload.urls")),
+
 ]
