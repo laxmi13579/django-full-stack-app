@@ -54,3 +54,7 @@ url.py
 base.html
 
     <a href="{% url 'main' %}" class="block px-4 py-2">Home</a>
+
+## d. Template setup
+
+Created seperate navbar.html page and include it in base.html file
