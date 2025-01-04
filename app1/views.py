@@ -6,7 +6,21 @@ from datetime import datetime
 
 
 def main(request):
-    return render(request, 'app1/main.html')
+    context = [
+    {
+        "id": 1,
+        "name": "Xyzabcdeft",
+        "email": "abcde@example.com",
+        "age": 34,
+        "address": {
+            "street": "123 Main St",
+            "city": "Springfield",
+            "state": "IL",
+            "zipcode": "62704"
+        }
+    }
+    ]
+    return render(request, 'app1/main.html', {'title': 'main page'})
 
 def about(request):
     return render(request, 'app1/about.html')
