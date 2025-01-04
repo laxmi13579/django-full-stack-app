@@ -20,7 +20,6 @@ main.html
     <title>Document</title>
 </head>
 <body>
-    <h1>Welcome to main page</h1>
     <button onclick="disp()">alert</button>
     <img src="{% static 'app1/images/lax.jpg' %}" width="200px" alt="laxmi pic">
     <script src="{% static 'app1/js/script.js' %}"></script>
@@ -58,3 +57,7 @@ base.html
 ## d. Template setup
 
 Created seperate navbar.html page and include it in base.html file
+
+pass value to the hero section using include function
+
+{% include 'app1/components/hero.html' with language='Lua'%}
