@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %} {% comment %}
+<form method="post" novalidate>
+  {% csrf_token %} {{form.as_p}}
+  <button
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+  >
+    Register
+  </button>
+</form>
+{% endcomment %}
+
+<form method="post" novalidate>
+  {% csrf_token %} {% for field in form%}
+  <div>
+    {{field.label_tag}}{{field}}<span class="text-red-500"
+      >{{field.errors|striptags}}</span
+    >
+  </div>
+  {% endfor %}
+  <input
+    type="submit"
+    value="Register"
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+  />
+</form>
+{% endblock content %}
