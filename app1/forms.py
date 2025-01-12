@@ -8,9 +8,9 @@ def password_validator(value):
     if len(value) < 4:
         raise forms.ValidationError('Password should be greater than 4 digit')
 class RegisterForm(forms.Form):
-    name = forms.CharField(validators=[MinLengthValidator(5), MaxLengthValidator(100)])
-    email = forms.CharField(max_length=100)
-    password = forms.CharField(widget=forms.PasswordInput, validators=[password_validator])
+    name = forms.CharField(validators=[MinLengthValidator(5), MaxLengthValidator(100)], error_messages={'required': 'Name is required'})
+    email = forms.CharField(max_length=100, error_messages={'required': 'Email is required'})
+    password = forms.CharField(widget=forms.PasswordInput, validators=[password_validator], error_messages={'required': 'Password is required'})
 
 
 # validate with all field, below code use name field validation
