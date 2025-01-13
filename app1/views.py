@@ -2,25 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from datetime import datetime 
 from app1.forms import RegisterForm
-
+from app1.models import Profile
 # Create your views here.
 
 
 def main(request):
-    context = [
-    {
-        "id": 1,
-        "name": "Xyzabcdeft",
-        "email": "abcde@example.com",
-        "age": 34,
-        "address": {
-            "street": "123 Main St",
-            "city": "Springfield",
-            "state": "IL",
-            "zipcode": "62704"
-        }
-    }
-    ]
     return render(request, 'app1/main.html', {'title': 'main page'})
 
 def about(request):
@@ -36,9 +22,17 @@ def register(request):
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
-            print('Name:',name)
-            print('Email:',email)
-            print('Password:',password)
+            # save data into database
+            user = Profile(name=name, email=email, password=password)
+            user.save()
+
+             # update data into database
+            # user = Profile(id=1, name=name, email=email, password=password)
+            # user.save()
+
+             # delete data into database
+            # user = Profile(id=1)
+            # user.delete()
             return HttpResponseRedirect('/')
     else:
         form = RegisterForm()
