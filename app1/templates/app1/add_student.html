@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block content %}
+<form method="post" novalidate>
+  {% csrf_token %}
+  <div>{{form.as_p}}</div>
+  <input
+    type="submit"
+    value="Register"
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+  />
+</form>
+{% endblock content %}
