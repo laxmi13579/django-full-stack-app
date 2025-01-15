@@ -2,13 +2,22 @@ from django import forms
 from django.core.validators import MaxLengthValidator, MinLengthValidator
 import re
 
+from app1.models import Profile
+
+class StudentRegisterForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['student_name', 'email', 'password']
+
+
 # custom validator to check the length of password
 # built in validator to check the length of name
 def password_validator(value):
     if len(value) < 4:
         raise forms.ValidationError('Password should be greater than 4 digit')
 class RegisterForm(forms.Form):
-    name = forms.CharField(validators=[MinLengthValidator(5), MaxLengthValidator(100)], error_messages={'required': 'Name is required'})
+    student_name = forms.CharField(validators=[MinLengthValidator(5), MaxLengthValidator(100)], error_messages={'required': 'Name is required'})
+    teacher_name = forms.CharField(validators=[MinLengthValidator(5), MaxLengthValidator(100)], error_messages={'required': 'Name is required'})
     email = forms.CharField(max_length=100, error_messages={'required': 'Email is required'})
     password = forms.CharField(widget=forms.PasswordInput, validators=[password_validator], error_messages={'required': 'Password is required'})
 
